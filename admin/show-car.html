@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/show-car.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <title>{{Car Name}}</title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+</head>
+<body>
+    <nav class="white">
+        <div class="container row">
+            <div class="col l6" style="text-align: left;">
+                <a class="btn-flat green white-text" id="go-back">Back To Dashboard</a>
+            </div>
+            <div class="col l6" style="text-align: right;">
+                <a class="btn-flat red darken-2 white-text" id="delete">Delete Car Listing</a>
+            </div>
+        </div>
+    </nav>
+    <section class="banner parallax-container self-container">
+        <div class="parallax"><img class="car-image" src=""></div>
+        <div class="videos-photos-price row">
+            <div class="vp col s12 l6">
+                <h6 class="luxia white-text photos-btn">
+                    <i class="fas fa-camera-retro white-text"></i>
+                    <span class="white-text luxia light-text"> View Photos</span>
+                </h6>
+                <h6 class="luxia white-text video-btn">
+                    <i class="fas fa-play white-text"></i>
+                    <span class="white-text luxia light-text"> View Videos</span>
+                </h6>
+            </div>
+            <div class="price-div col s12 l6" >
+                <h4 class="white-text black-blod">
+                    <sup class="white-text light-text">$</sup>
+                    <span class="white-text black-bold xx-large">
+                        1,750
+                    </span>
+                    <small class="white-text light-text small-text">
+                        Per Day
+                    </small>
+                </h4>
+            </div>
+        </div>
+    </section>
+    <section class="section self-container row">
+        <main class="self-container col l9 s12">
+            <h2 class="black-text bold luxia car-name">Rental Fleet</h2>
+            <div class="divider" style="border-top: 1px dotted rgb(211, 211, 211); width: 100%;"></div>
+            <div class="padding-even"></div>
+            <div class="icons-holder">
+                <p class="person"><i class="far fa-user small"></i> <span class="luxia"> 2 Passengers</span></p>
+                <p class="luggage"><i class="fas fa-briefcase small"></i> <span class="luxia"> 1 Luggage</span></p>
+                <p class="transition"><i class="fas fa-cogs small"></i> <span class="luxia"> Auto</span></p>
+                <p class="doors"><i class="fas fa-car small"></i><span class="luxia"> 2 Doors</span></p>
+            </div>
+            <div class="padding-even"></div>
+            <div class="divider" style="border-top: 1px dotted rgb(211, 211, 211); width: 100%;"></div>
+            <div class="padding-even"></div>
+            <div class="description">
+
+            </div>
+            <div class="padding-even"></div>
+            <div class="show-awaiting">
+                <h5 class="black-text luxia">Available Days</h5>
+                <div class="divider" style="border-top: solid 1px rgb(226, 226, 226); width: 100%;"></div>
+                <div class="month-header">
+                    <h5 class="luxia month" style="text-align: center;">August</h5>
+                    <p class="last-updated grey-text x-small" style="margin: 0; text-align: center;"></p>
+                </div>
+                <div class="render-awaiting self-container row" style="width: 100%; justify-content: center;">
+
+                </div>
+            </div>
+            <div class="padding-even"></div>
+            <div class="show-review">
+                <h5 class="black-text luxia">Existing Review</h5>
+                <div class="divider" style="border-top: solid 1px rgb(226, 226, 226); width: 100%;"></div>
+                <div class="render-review">
+
+                </div>
+            </div>
+            <div class="padding-even"></div>
+            <h5 class="black-text luxia">Write A Review</h5>
+            <div class="divider" style="border-top: solid 1px rgb(226, 226, 226); width: 100%;"></div>
+            <h5 class="semi-bold grey-text text-darken-3 small-text">
+                Comment
+            </h5>
+            <textarea name="" id="comment" cols="30" rows="10" class="light-border comment"></textarea>
+            <div class="row">
+                <div class="col s12 l4" style="padding-right: 5px;">
+                    <h5 class="grey-text text-darken-3 semi-bold small-text">
+                        Name *
+                    </h5>
+                    <input type="text" class="light-border" id="name">
+                </div>
+                <div class="col s12 l4" style="padding-right: 5px;">
+                    <h5 class="grey-text text-darken-3 semi-bold small-text">
+                        Email *
+                    </h5>
+                    <input type="email" class="light-border" id="email">
+                </div>
+                <div class="col s12 l4">
+                    <h5 class="grey-text text-darken-3 semi-bold small-text">
+                        Website
+                    </h5>
+                    <input type="text" class="light-border" id="website">
+                </div>
+            </div>
+            <div class="rating-row row">
+                <div class="col s12 l6">
+                    <h5 class="grey-text text-darken-3 semi-bold small-text">
+                        Driving
+                    </h5>
+                    <div class="starRating">
+                        <input id="driving-5" type="radio" name="driving-rating" value="5">
+                        <label for="driving-5"></label>
+                        <input id="driving-4" type="radio" name="driving-rating" value="4">
+                        <label for="driving-4"></label>
+                        <input id="driving-3" type="radio" name="driving-rating" value="3" checked>
+                        <label for="driving-3"></label>
+                        <input id="driving-2" type="radio" name="driving-rating" value="2">
+                        <label for="driving-2"></label>
+                        <input id="driving-1" type="radio" name="driving-rating" value="1">
+                        <label for="driving-1"></label>
+                    </div>
+                </div>
+                <div class="col s12 l6">
+                    <h5 class="grey-text text-darken-3 semi-bold small-text">
+                        Interior Layout              
+                    </h5>
+                    <div class="starRating">
+                        <input id="interior-5" type="radio" name="interior-rating" value="5">
+                        <label for="interior-5"></label>
+                        <input id="interior-4" type="radio" name="interior-rating" value="4">
+                        <label for="interior-4"></label>
+                        <input id="interior-3" type="radio" name="interior-rating" value="3" checked>
+                        <label for="interior-3"></label>
+                        <input id="interior-2" type="radio" name="interior-rating" value="2">
+                        <label for="interior-2"></label>
+                        <input id="interior-1" type="radio" name="interior-rating" value="1">
+                        <label for="interior-1"></label>
+                    </div>
+                </div>
+                <div class="col s12 l6">
+                    <h5 class="grey-text text-darken-3 semi-bold small-text">
+                        Space & Practicality
+                    </h5>
+                    <div class="starRating">
+                        <input id="space-5" type="radio" name="space-raating" value="5">
+                        <label for="space-5"></label>
+                        <input id="space-4" type="radio" name="space-raating" value="4">
+                        <label for="space-4"></label>
+                        <input id="space-3" type="radio" name="space-raating" value="3" checked>
+                        <label for="space-3"></label>
+                        <input id="space-2" type="radio" name="space-raating" value="2">
+                        <label for="space-2"></label>
+                        <input id="space-1" type="radio" name="space-raating" value="1">
+                        <label for="space-1"></label>
+                    </div>
+                </div>
+                <div class="col s12 l6">
+                    <h5 class="grey-text text-darken-3 semi-bold small-text">
+                        Overall
+                    </h5>
+                    <div class="starRating">
+                        <input id="overall-5" type="radio" name="overall-rating" value="5">
+                        <label for="overall-5"></label>
+                        <input id="overall-4" type="radio" name="overall-rating" value="4">
+                        <label for="overall-4"></label>
+                        <input id="overall-3" type="radio" name="overall-rating" value="3" checked>
+                        <label for="overall-3"></label>
+                        <input id="overall-2" type="radio" name="overall-rating" value="2">
+                        <label for="overall-2"></label>
+                        <input id="overall-1" type="radio" name="overall-rating" value="1">
+                        <label for="overall-1"></label>
+                    </div>
+                </div>
+            </div>
+            <button class="white-text brand-color submit">
+                Post Review
+            </button>
+        </main>
+        <aside class="col l3" style="padding-left: 10px !important;">
+            <h5 class="black-text luxia">Enter Available Dates</h5>
+            <div class="divider" style="border-top: solid 1px rgb(226, 226, 226); width: 100%;"></div>
+            <h5 class="grey-text text-darken-3 semi-bold small-text">
+                Days *
+            </h5>
+            <input type="text" class="light-border" id="days">
+            <p class="grey-text x-small" style="margin: 0;">Numbers should be seperated by commas i.e ","</p>
+            <div class="padding-even"></div>
+            <button class="white-text brand-color submit-days">
+                Add Days
+            </button>
+        </aside>
+    </section>
+    <!-- Big Page loader -->
+    <div class="loader" style="text-align: center;">
+        <img src="/assets/loading.gif" alt="" class="loader-gif" style="width: 20%">
+    </div>
+    <!-- Video Player -->
+    <div class="video-pop-up">
+        <div class="close-holder">
+            <h4 class="white-text luxia">X</h4>
+        </div>
+        <div class="video-holder">
+
+        </div>
+    </div>
+    <!-- photos carousel -->
+    <div class="photo-pop-up">
+        <div class="close-hlder">
+            <h4 class="white-text luxia">X</h4>
+        </div>
+        <div class="slides">
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Show side nav in mobile view
+         $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+            
+        });
+        
+    </script>
+    <script src="js/show-car.js"></script>
+</body>
+</html>

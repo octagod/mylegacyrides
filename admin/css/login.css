@@ -1,0 +1,358 @@
+/* General Css */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap');
+@font-face{
+    font-family: 'luxia';
+    src: url('../fonts/luxia.woff')
+    url('../fonts/luxia.woff2');
+}
+*{
+    font-family: 'Poppins';
+    /* font-family: 'EB Garamond', serif !important; */
+}
+.luxia{
+    font-family: 'EB Garamond', serif !important;
+}
+::selection{
+    background-color: #222222;
+    color: white;
+}
+.section{
+    padding-top: 2% !important;
+    padding-bottom: 4% !important;
+    position: relative;
+}
+/* Text Weight Variation */
+.thin-text{
+    font-weight: 100;
+}
+.extra-light-text{font-weight: 200;} .light-text{font-weight: 300;} .regular-text{font-weight: 400;} .medium-text{font-weight: 500;}
+.semi-bold{font-weight: 600;} .bold{font-weight: 700;} .black-bold{font-weight: 900;}
+/* Text Weight Variation Ends */
+.inner-container{
+    padding: 20px;
+}
+.padding-even{
+    padding: 20px;
+}
+.padding-lr{
+    padding: 0 20px !important;
+}
+/* Text Size variation */
+.xx-small{
+    font-size: xx-small;
+}
+.x-small{ font-size: x-small;} .small-text{font-size: small;} .xx-large{font-size: xx-large;} .large-text{font-size: large;}
+.brand-color{
+    background-color: #A98037;
+}
+.brand-color-text{
+    color: #A98037;
+}
+.self-container{
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.full-height{
+    height: 100vh;
+}
+:root{
+    --primary: #A98037;
+    --background: rgb(240, 240, 240);
+    --black: rgb(37, 37, 37);
+}
+div.toast-body{
+    padding: 2%;
+    visibility: 0;
+    opacity: 0;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    background-color: #A98037;
+    border-left: solid 10px white;
+    transition: .5s ease;
+}
+div.show{
+    visibility: 1;
+    opacity: 1;
+}
+p.toast{
+    color: white;
+    font-size: 20px;
+    font-family: var(--content);
+}
+@media screen and (max-width: 800px){
+    body{
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        /* width: 100%; */
+        background-color: white;
+        height: 100vh;
+        /* padding: 1%; */
+    }
+    .first{
+        display: none;
+    }
+    .container{
+        grid-column: 1/13;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgb(54, 54, 54);
+    }
+    .second{
+        padding: 2%;
+        /* background-image: url(/assets/audi.jpg); */
+        background-blend-mode: darken;
+        background-color: #A98037;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .second h2{
+        color: white;
+        font-size: 35px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        text-align: center;
+        margin: 5px;
+    }
+    .second sub{
+        display: block;
+        font-size: 15px;
+        color: rgb(226, 226, 226);
+        font-family: 'Montserrat';
+        text-align: center;
+        font-weight: 300;
+        margin: 10px;
+    }
+    input{
+        display: block !important;
+        padding: 13px !important;
+        background-color: rgba(255, 255, 255, 0.404) !important;
+        border: none !important;
+        border-radius: 5px !important;
+        width: 90% !important;
+        margin-top: 15px !important;
+        color: white !important;
+    }
+    input::placeholder{
+        color: white !important;
+    }
+    p.forgotPassword{
+        font-weight: 300;
+        font-size: 17px;
+        border-left: solid white 2px;
+        transition: ease .5s;
+        color: white;
+        font-family: 'Montserrat';
+    }
+    button.sign-in{
+        color: var(--primary);
+        background: white;
+        border: none;
+        padding: 3% 15%;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+}
+@media screen and (min-width: 801px){
+    body{
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        /* width: 100%; */
+        height: 100vh;
+        background-color: var(--background);
+        /* padding: 1%; */
+    }
+    .container{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        width: 85vw;
+        box-shadow: 0 10px 20px rgb(182, 182, 182);
+        border-radius: 10px;
+    }
+    .first{
+        grid-column: 1/6;
+        background-image: url(/assets/audi.jpg);
+        background-size: cover;
+        background-blend-mode: darken;
+        background-color: rgba(0, 0, 0, 0.767);
+        padding: 10%;
+        display: grid;
+        align-content: center;
+        justify-items: center;
+        justify-content: center;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        height: 60vh;
+        text-align: center;
+    }
+    .first h1{
+        color: white;
+        font-size: 28px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        text-align: center;
+    }
+    .first p{
+        color: white;
+        font-family: 'Montserrat';
+        font-weight: 300;
+        text-align: center;
+        font-size: 18px;
+        line-height: 25px;
+        /* letter-spacing: 1px; */
+    }
+    .second{
+        grid-column: 6/13;
+        padding: 10%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: white;
+        text-align: center;
+    }
+    .second h2{
+        color: var(--primary);
+        font-size: 35px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        text-align: center;
+        margin: 5px;
+    }
+    .second sub{
+        display: block;
+        font-size: 15px;
+        color: grey;
+        font-family: 'Montserrat';
+        text-align: center;
+        font-weight: 300;
+        margin: 10px;
+    }
+    input{
+        display: block !important;
+        padding: 13px !important;
+        background-color: rgb(221, 221, 221) !important;
+        border: none !important;
+        border-radius: 5px !important;
+        width: 90% !important;
+        margin-top: 15px !important;
+    }
+    p.forgotPassword{
+        display: none !important;
+    }
+    p.forgotPassword:hover{
+        font-weight: 500;
+        font-size: 17px;
+        border-left: solid var(--primary) 2px;
+        transition: ease .5s;
+    }
+    button.sign-in{
+        color: white;
+        background: var(--primary);
+        border: none;
+        padding: 3% 15%;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 30px;
+    }
+    .fog-pass{
+        border: 3px white solid;
+        background-color: transparent;
+        padding: 3% 15%;
+        color: white;
+        margin-top: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+}
+@media screen and (width: 1024px){
+    body{
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        /* width: 100%; */
+        background-color: white;
+        height: 100vh;
+        /* padding: 1%; */
+    }
+    .first{
+        display: none;
+    }
+    p.forgotPassword{
+        display: block;
+    }
+    .container{
+        grid-column: 1/13;
+        width: 90vw;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgb(54, 54, 54);
+        display: block;
+    }
+    .second{
+        padding: 5%;
+        background-image: url(/assets/audi.jpg);
+        background-blend-mode: darken;
+        background-color: rgba(0, 0, 0, 0.589);
+        border-radius: 10px;
+        text-align: center;
+    }
+    .second h2{
+        color: white;
+        font-size: 55px;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        text-align: center;
+        margin: 5px;
+    }
+    .second sub{
+        display: block;
+        font-size: 20px;
+        color: rgb(226, 226, 226);
+        font-family: 'Montserrat';
+        text-align: center;
+        font-weight: 300;
+        margin: 10px;
+    }
+    input{
+        display: block !important;
+        padding: 13px !important;
+        background-color: rgba(255, 255, 255, 0.404) !important;
+        border: none !important;
+        border-radius: 10px !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+        color: white !important;
+        height: 50px !important;
+        font-size: 20px !important;
+    }
+    input::placeholder{
+        color: white !important;
+    }
+    p.forgotPassword{
+        font-weight: 300;
+        font-size: 20px;
+        border-left: solid white 2px;
+        transition: ease .5s;
+        color: white;
+        font-family: 'Montserrat';
+    }
+    button.sign-in{
+        color: var(--primary);
+        background: white;
+        border: none;
+        padding: 3% 15%;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+}

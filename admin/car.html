@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="css/dash.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>Add Car To Fleet</title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+</head>
+<body class="grey lighten-3" onload="enableEditMode()">
+    <section class="row">
+        <aside class="side-bar primary-color col l2 hide-on-med-and-down full-height">
+            <div class="user-details padding-even" style="text-align: center;">
+                <div style="display: flex; justify-content: center;">
+                    <div class="profile-picture">
+
+                    </div>
+                </div>
+                <h6 class="username white-text">
+                    Loading...
+                </h6>
+                <p class="email grey-text text-lighten-2 small-text">
+                    
+                </p>
+            </div>
+            <div class="list dashTab">
+                <i class="fas fa-tachometer-alt white-text"></i> <p class="white-text">Dashboard</p>
+            </div>
+            <div class="list car selected">
+                <i class="fas fa-car white-text"></i> <p class="white-text">Cars</p>
+            </div>
+            <div class="list blog ">
+                <i class="far fa-newspaper white-text"></i> <p class="white-text">Blogs</p>
+            </div>
+            <div class="list user">
+                <i class="fas fa-users white-text"></i> <p class="white-text">Users</p>
+            </div>
+            <div class="list faq">
+                <i class="far fa-question-circle white-text"></i> <p class="white-text">FAQ</p>
+            </div>
+            <div class="list sign-out">
+                <i class="fas fa-info-circle white-text"></i> <p class="white-text">Sign Out</p>
+            </div>
+        </aside>
+        <section class="col l10 offset-l2 hide-on-med-and-down">
+            <div class="row">
+                <div class="col l12">
+                    <h5 class="black-text">Add A New Car Listing</h5>   
+                </div>
+                <div class="col l7">
+                    <div class="padding-even"></div>
+                    <input type="text" name="blog" id="car-name">
+                    <p class="grey-text small-text margin-0">Car Name</p>
+                    <div class="padding-even"></div>
+                    <input type="text" name="car" id="turo-link">
+                    <p class="grey-text small-text margin-0">Car Turo Link</p>
+                    <div class="padding-even"></div>
+                    <div class="show-images">
+
+                    </div>
+                    <!-- <div class="padding-even"></div> -->
+                    <input type="file" name="image-file" multiple="multiple" id="image-file">
+                    <p class="grey-text small-text margin-0">Select Car Images</p>
+                    <div class="padding-even"></div>
+                    <div class="row">
+                        <div class="col l6">
+                            <input type="number" name="doors" id="doors">
+                            <p class="grey-text small-text margin-0">Numbers of doors this car has</p>
+                            <div class="padding-small"></div>
+                        </div>
+                        <div class="col l6">
+                            <input type="number" name="luggage" id="luggage" value='1'>
+                            <p class="grey-text small-text margin-0">Number of luggage</p>
+                            <div class="padding-small"></div>
+                        </div>
+                        <div class="col l6">
+                            <input type="number" name="price" id="price">
+                            <p class="grey-text small-text margin-0">Car Rental Price per day</p>
+                            <div class="padding-small"></div>
+                        </div>
+                        <div class="col l6">
+                            <input type="number" name="passengers" id="passengers" value="2">
+                            <p class="grey-text small-text margin-0">Car Passengers Capacity</p>
+                            <div class="padding-small"></div>
+                        </div>
+                        <div class="col l6">
+                            <input type="text" name="transmission" id="transmission" value="Auto">
+                            <p class="grey-text small-text margin-0">What car transmission i.e Auto or Manual</p>
+                        </div>
+                        <div class="col l6">
+                            <input type="text" name="timeline" id="timeline" value="Per day">
+                            <p class="grey-text small-text margin-0">What method of billing is associated with this car e.g Per day or Per hour</p>
+                        </div>
+                    </div>
+                    <div class="padding-even"></div>
+                    <input type="text" name="video" id="video">
+                    <p class="grey-text small-text margin-0">Video Review Link</p>
+                    <div class="padding-even"></div>
+                    <!-- Richtext Field -->
+                    <div class="richtext-function-buttons">
+                        <button onclick="Edit('bold')" title="bold"><i class="fa fa-bold"></i></button>
+                        <button onclick="Edit('italic')" title="italic"><i class="fa fa-italic"></i></button>
+                        <button onclick="Edit('underline')" title="underline"><i class="fa fa-underline"></i></button>
+                        <button onclick="Edit('strikeThrough')" title="strikeThrough"><i class="fa fa-strikethrough"></i></button>
+                        <button onclick="Edit('justifyLeft')" title="Align Left"><i class="fa fa-align-left"></i></button>
+                        <button onclick="Edit('justifyCenter')" title="Align Center"><i class="fa fa-align-center"></i></button>
+                        <button onclick="Edit('justifyFull')" title="justify"><i class="fa fa-align-justify"></i></button>
+                        <!-- <button onclick="Edit('cut')" title="cut"><i class="fa fa-cut"></i></button>
+                        <button onclick="Edit('copy')" title="Copy"><i class="fa fa-copy"></i></button> -->
+                        <!-- <button onclick="Edit('indent')" title="text-indent"><i class="fa fa-indent"></i></button> -->
+                        <!-- <button onclick="Edit('outdent')" title="text outdent"><i class="fa fa-outdent"></i></button> -->
+                        <!-- <button onclick="Edit('subscript')" title="subscript"><i class="fa fa-subscript"></i></button> -->
+                        <!-- <button onclick="Edit('superscript')" title="subscript"><i class="fa fa-superscript"></i></button> -->
+                        <!-- <button onclick="Edit('undo')" title="undo"><i class="fa fa-undo"></i></button> -->
+                        <!-- <button onclick="Edit('redo')" title="redo"><i class="fa fa-redo"></i></button> -->
+                        <!-- <button onclick="Edit('insertUnorderedList')" title="unordered list"><i class="fa fa-list-ul"></i></button> -->
+                        <!-- <button onclick="Edit('insertOrderedList')" title="ordered list"><i class="fa fa-list-ol"></i></button> -->
+                        <button onclick="Edit('insertParagraph')"><i class="fa fa-paragraph"></i></button>
+                        <select onchange="execVal('formatBlock',this.value)">
+                            <option value="H1">H1</option>
+                            <option value="H2">H2</option>
+                            <option value="H3">H3</option>
+                            <option value="H4">H4</option>
+                            <option value="H5">H5</option>
+                            <option value="H6">H6</option>
+                          </select>
+                        <br>
+                        <!-- <button onclick="Edit('insertHorizontalRule')" title="insert Horizontal Rule">insert Horizontal Rule</button> -->
+                        <button onclick="Edit('createLink',prompt('Enter a URL,http://'))"><i class="fa fa-link"></i></button>
+                        <button onclick="Edit('unlink')"><i class="fa fa-unlink"></i></button>
+                        <!-- <select onchange="execVal('fontName',this.value)">
+                            <option value="Verdana">Verdana</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Comic Sans MS">Comic Sans MS</option>
+                            <option value="Courier">Courier</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Tahoma">Tahoma</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                          </select> -->
+                        <!-- <select onchange="execVal('fontSize',this.value)" title="font size">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                          </select> -->
+                          <!-- Font Color -->
+                          <!-- <input type="color" onchange="execVal('foreColor',this.value)" />  -->
+                          <!-- Highlight -->
+                          <!-- <input type="color" onchange="execVal('hiliteColor',this.value)" /> -->
+                      </div>
+                    <iframe name="richTextField" style="width:100%;height:50vh;margin:auto;display: block;">
+      
+                    </iframe>
+                    <small class="grey-text">
+                        Links should be plainly written out 
+                    </small>
+                    <div class="padding-even"></div>
+                    <div class="button-holder">
+                        <a class="btn-flat brand-color white-text waves-effect waves-light submit-car" style="width: 100%; text-align: center;">
+                            Add Car To Fleet
+                        </a>
+                    </div>
+                </div>
+                <div class="col l4 offset-l1">
+                    <div class="white">
+                        <h6 class="white-text primary-color padding-small padding-lr">
+                            Existing Car Listing
+                        </h6> 
+                        <div class="padding-even render-cars">
+                            <div class="row car-body">
+                                Loading....
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        function enableEditMode() {
+            richTextField.document.designMode = "on";
+        }
+        function Edit(command) {
+            richTextField.document.execCommand(command, false, null);
+        }
+        function execVal(command, value) {
+            richTextField.document.execCommand(command, false, value);
+        }
+    </script>
+    <script src="js/car.js"></script>
+</body>
+</html>

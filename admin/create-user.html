@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>Dasboard Login</title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+</head>
+
+<body class="grey lighten-2 section" style="overflow-y: scroll;">
+    <div class="container" style="width: 100%; border-radius: 20px !important;">
+        <div class="second" style="grid-column: 1/13; border-radius: 20px;">
+            <h2>Create User Account</h2>
+            <div class="show-image" style="display: flex; justify-content: center; padding: 10px;">
+                <div class="image" >
+
+                </div>
+            </div>
+            <input type="file" name="image" id="image">
+            <input type="text" name="name" id="username" placeholder="full name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="text" id="role" placeholder="Role" value="Sub User" disabled>
+            <!-- <p class="">Provide all necessary informations, be mindful to do so carefully as information cannot be change once registered</p> -->
+            <button class="sign-in">REGISTER</button>
+
+        </div>
+    </div>
+    <div class="toast-body">
+        <p class="toast">
+
+        </p>
+    </div>
+    <script src="/admin/js/cu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="css/dash.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>Add Faq </title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+</head>
+<body class="grey lighten-3">
+    <section class="row">
+        <aside class="side-bar primary-color col l2 hide-on-med-and-down full-height">
+            <div class="user-details padding-even" style="text-align: center;">
+                <div style="display: flex; justify-content: center;">
+                    <div class="profile-picture">
+
+                    </div>
+                </div>
+                <h6 class="username white-text">
+                    Loading...
+                </h6>
+                <p class="email grey-text text-lighten-2 small-text">
+                    
+                </p>
+            </div>
+            <div class="list dashTab">
+                <i class="fas fa-tachometer-alt white-text"></i> <p class="white-text">Dashboard</p>
+            </div>
+            <div class="list car">
+                <i class="fas fa-car white-text"></i> <p class="white-text">Cars</p>
+            </div>
+            <div class="list blog ">
+                <i class="far fa-newspaper white-text"></i> <p class="white-text">Blogs</p>
+            </div>
+            <div class="list user">
+                <i class="fas fa-users white-text"></i> <p class="white-text">Users</p>
+            </div>
+            <div class="list faq selected">
+                <i class="far fa-question-circle white-text"></i> <p class="white-text">FAQ</p>
+            </div>
+            <div class="list sign-out">
+                <i class="fas fa-info-circle white-text"></i> <p class="white-text">Sign Out</p>
+            </div>
+        </aside> 
+        <section class="col l10 offset-l2 hide-on-med-and-down">
+            <div class="row">
+                <div class="col l12" style="display: flex; justify-content: space-between; padding-top: 20px;">
+                    <h5 class="black-text" style="margin: 0;">Add Or Delete Existing Frequently Asked Questions</h5>   
+                    <a class="btn-flat white-text blue waves-effect waves-light" id="add-faq-btn">Add New Faq</a>
+                </div>
+                <div class="col l7">
+                    <div class="padding-even"></div>
+                    <div class="show-faq">
+
+                    </div>
+                </div>
+            </div>
+        </section>       
+    </section>
+    <div class="faq-popup">
+        <p class="cancel bold large-text">x</p>
+        <div class="white padding-even" style="width: 50%;">
+            <input type="text" name="question" id="question">
+            <p class="grey-text small-text" style="margin: 0;">Type Out Question</p>
+            <div class="padding-even"></div>
+            <textarea name="answer" id="answer"></textarea>
+            <p class="small-text grey-text" style="margin: 0;">Type Out Answer</p>
+            <div class="padding-even"></div>
+            <a class="btn-flat brand-color white-text waves-effect waves lenght submit-btn">SUMBIT FAQ</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/faq.js"></script>
+</body>
+</html>

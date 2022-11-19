@@ -1,0 +1,54 @@
+ul.collapsible{
+    box-shadow: none !important;
+    border: none !important;
+}
+.collapsible i{
+    display: flex;
+    padding: 5px; 
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #A98037;
+    font-size: 15px;
+    border-radius: 20px;
+}
+div.collapsible-header{
+    font-size: 20px;
+}
+.sidenav{
+    background-color: white;
+    border: 10px solid #A98037;
+}
+.sidenav li>a{
+    color: black !important;
+    font-size: 18px !important;
+}
+section.banner{
+    background-image: url('/assets/tes2.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-blend-mode: darken !important;
+    background-color: rgba(0, 0, 0, 0.555) !important;
+    height: 80vh !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    justify-items: center !important;
+}
+@media screen and (max-width: 799px){
+    .collapsible i{
+        background-color: transparent;
+        color: black;
+    }
+    section.banner{
+        height: 50vh !important;
+        background-image: url('/assets/tes2.jpg') !important;
+    }
+}
+@media screen and (width: 1024px) {
+    .container{
+        margin-left: 50px;
+        margin-right: 50px;
+        width: calc(100% - 100px);
+    }
+}

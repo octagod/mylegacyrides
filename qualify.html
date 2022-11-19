@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="" class="keywords">
+    <meta property="og:image" content="">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        form *{
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        form input[type="submit"]{
+            position: relative;
+            opacity: 1;
+            visibility: visible;
+            background-color: rgb(0, 187, 0) !important;
+            width: 100% !important;
+        }
+    </style>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <title>Did Not Qualify</title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <section class="brand-color container">
+        <div class="pop-up-holder show">
+            <div class="pop-up padding-even">
+                <div class="head brand-color" style="padding: 5px 10px;">
+                    <h4 class="white-text">Let's confirm rental requirements</h4>
+                    <p class="white-text">We require that you complete our Client Leasing Application. Please note that
+                        in order to rent a luxury car, we require the following:</p>
+                </div>
+                <div class="white">
+                    <ul>
+                        <li>
+                            ● You must be 25 years old or older.
+                        </li>
+                        <li>
+                            ● You must have a valid drivers licence.
+                        </li>
+                        <li>
+                            ● You must provide us with a valid credit card.
+                        </li>
+                        <li>
+                            ● You must have verified auto insurance coverage.
+                        </li>
+                    </ul>
+                </div>
+                <div class="red lighten-4">
+                    <p class="red-text">Don't meet the requirement? Try our alternative option.</p>
+                </div>
+                <div class="padding-even"></div>
+                <div class="btn-cont">
+                    <a href="https://turo.com/us/en/drivers/16107701" class="btn-flat blue white-text turo-link center" style="width: 100%; ">
+                    Proceed to alternative Option
+                    </a>
+                    <!-- <a href="/rental-fleet.html" class="btn-flat blue white-text col s12 l6">
+                        Submit Request
+                    </a> -->
+                    <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+                        <!-- Name -->
+                        <p class="small-text white-text luxia">
+                            Full Name <sub class="red-text">*</sub>
+                        </p>
+                        <input type="text" name="name" required/>
+                        <p class="small-text white-text luxia">
+                            Email Address <sub class="red-text">*</sub>
+                        </p>
+                        <!-- Email field (required) -->
+                        <input type="text" name="email" required/>
+                        <p class="small-text white-text luxia">
+                            Phone <sub class="red-text">*</sub>
+                        </p>
+                        <input name="custom_phone" type="text" value="" required/>
+                        <textarea name="custom_comment" style="height: 0; opacity: 0; visibility: hidden;"></textarea>
+                        <!-- List token -->
+                        <!-- Get the token at: https://app.getresponse.com/campaign_list.html -->
+                        <input type="hidden" name="campaign_token" value="rcqI6" />
+                        <!-- Thank you page (optional) -->
+                        <input type="hidden" name="thankyou_url" value="https://mylegacyrides.com/thank-you.html" />
+                        <!-- Add subscriber to the follow-up sequence with a specified day (optional) -->
+                        <input type="hidden" name="start_day" value="0" />
+                        <!-- Subscriber button -->
+                        <input type="submit" value="SUBMIT REQUEST"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAiHsByQwEDdpGOWh4F_qPX0tWjPMIcPkI",
+            authDomain: "my-legacy-rides.firebaseapp.com",
+            projectId: "my-legacy-rides",
+            storageBucket: "my-legacy-rides.appspot.com",
+            messagingSenderId: "141857147115",
+            appId: "1:141857147115:web:7f7fa7e7fd72f99cf856ae",
+            measurementId: "G-RNPHK82611"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        let firestore = firebase.firestore();
+        //get car Id 
+        let urlParams = new URLSearchParams(window.location.search);
+        let carId = urlParams.get('id');
+
+        let turo_link = document.querySelector('.turo-link');
+
+        //get car's turo link
+        firestore.collection('cars').doc(carId).get()
+        .then( snap => {
+            turo_link.setAttribute('href', `${snap.data().turo}`);
+        });
+
+        //get localstorage data
+        let data = JSON.parse(localStorage.getItem('booking-info'));
+        console.log(data);
+
+        let email = document.querySelector('input[name="email"]');
+        let username = document.querySelector('input[name="name"]');
+        let phone = document.querySelector('input[name="custom_phone"]');
+        let comment = document.querySelector('textarea[name="custom_comment"]');
+
+        email.value = data.booking_email;
+        username.value = data.booking_name;
+        phone.value = data.booking_phone;
+        comment.value = data.other_info;
+
+
+    </script>
+</body>
+
+</html>

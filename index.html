@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="" class="keywords">
+    <meta property="og:image" content="">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <title>Luxurious Car Rentals</title>
+    <!-- Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDGPFTKFBM"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDGPFTKFBM');
+    </script>
+
+        <!-- facebook pixel -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '741538993686781');
+        fbq('track', 'PageView');
+    </script>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+
+    <nav class="nav-wrapper transparent z-depth-0">
+        <div class="container">
+            <a href="/index.html" class="hide-on-med-and-down"><img src="/assets/logo.png" alt=""></a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-menu"><i
+                    class="material-icons white-text">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="rental-fleet.html" class="white-text luxia">Rental Fleet</a></li>
+                <li><a href="services.html" class="white-text luxia">Chauffeur Services</a></li>
+                <li><a href="salon.html" class="white-text luxia">Legacy Gallery</a></li>
+                <!-- <li><a href="media.html" class="white-text luxia">Media</a></li> -->
+                <!-- <li><a href="shop.html" class="white-text luxia">Shop</a></li> -->
+                <li><a href="faq.html" class="white-text luxia">FAQ</a></li>
+                <li><a href="about-us.html" class="white-text luxia">About Us</a></li>
+                <li><a href="contact.html" class="white-text luxia">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-menu">
+        <li><a href="/index.html" class="black-text text-lighten-2 luxia">Home Page</a></li>
+        <li><a href="rental-fleet.html" class="black-text text-lighten-2 luxia">Rental Fleet</a></li>
+        <li><a href="services.html" class="black-text text-lighten-2 luxia">Chauffeur Services</a></li>
+        <li><a href="salon.html" class="black-text text-lighten-2 luxia">Legacy Gallery</a></li>
+        <!-- <li><a href="media.html" class="black-text text-lighten-2 luxia">Media</a></li> -->
+        <!-- <li><a href="shop.html" class="black-text text-lighten-2 luxia">Shop</a></li> -->
+        <li><a href="faq.html" class="black-text text-lighten-2 luxia">FAQ</a></li>
+        <li><a href="about-us.html" class="black-text text-lighten-2 luxia">About Us</a></li>
+        <li><a href="contact.html" class="black-text text-lighten-2 luxia">Contact</a></li>
+    </ul>
+    <section class="banner">
+
+        <div class="logo-holder self-container">
+            <!-- logo -->
+            <img src="/assets/logo.png" alt="" class="banner-logo">
+            <h3 class="white-text" style="text-align: center;">
+                Book now and get UP TO <b>25% OFF YOUR NEXT RENTAL!</b>
+            </h3>
+            <!-- Timer -->
+            <div class="timer white-text xx-large" style="display: flex; justify-content: space-between; width: 20%;">
+                <!-- <span id="Days">00</span> -->
+                <span id="hours" class="white-text xx-large">00 <br>HOURS</span> :
+                <span id="minutes" class="white-text xx-large">14 <br>MINUTES</span> :
+                <span id="seconds" class="white-text xx-large">59 <br>SECONDS</span>
+                <!-- labels -->
+
+            </div>
+            <!-- Button -->
+            <div class="button-holder" style="margin-top: 20px;">
+                <a href="/contact.html" class="btn-flat brand-color white-text">
+                    Reserve Now <i class="material-icons right">chevron_right</i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <section class="car-banner hide-on-large">
+
+    </section>
+    <section class="fleets section white">
+        <div class="self-container center">
+            <!-- space boxed -->
+            <div class="padding-even"></div>
+            <h2 class="luxia center">
+                Our Fleet
+            </h2>
+            <p class="grey-text gret-lighten-2 center">
+                Drive the luxurious cars of your dreams!
+            </p>
+            <a href="rental-fleet.html" class="brand-color white-text btn-flat luxia">
+                View All
+            </a>
+            <div class="show-fleet">
+                <!-- Show fleet of cars in 2 columns l & 1 column m-s -->
+                <div class="render-fleet">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="our-fleet section">
+        <!-- <video autoplay muted loop src="/assets/bgvid.mp4">
+            
+        </video> -->
+        <div class="container center">
+            <h2 class="white-text luxia semi-bold">
+                Our Fleet, Your Drive!
+            </h2>
+            <p class="white-text">
+                One with unique taste can tell that there is a major difference showing up in a just car and pulling up
+                in a luxurious ride.
+                This is why we multiply our efforts and raise our standards so high above the regular to satisfy the
+                unique taste of our customers by providing top class chauffeur and luxurious car rental services.
+                Weddings, dinners, special events, or even if you just want to have an amazing driving experience,
+                whatever that day is, let’s make it a memorable experience that you’d never forget!
+            </p>
+            <p class="white-text large-text luxia">
+                Call Now <span class="brand-color-text">(972)-674 8081</span>
+            </p>
+            <a href="mailto:info@mylegacyrides.com" class="btn-flat brand-color white-text luxia">
+                Request a Quote
+            </a>
+        </div>
+    </section>
+    <section class="brand-color section">
+        <div class="container center">
+            <h2 class="white-text luxia semi-bold">
+                Legacy Ride Gold Standards
+            </h2>
+            <p class="white-text">
+                Explore our 5 star chauffeur and luxurious car rental services.
+            </p>
+            <div class="padding-even"></div>
+            <div class="padding-even"></div>
+            <div class="row">
+                <div class="col s12 l4 padding-even">
+                    <i class="fas fa-car white-text medium"></i>
+                    <h5 class="white-text semi-bold luxia">
+                        A Variety of Glamour
+                    </h5>
+                    <p class="white-text luxia">
+                        Even in luxury, there is diversity in taste. Choose from our fleet, the ride that resonates with
+                        your preference in luxury.
+                    </p>
+                </div>
+                <div class="col s12 l4 padding-even">
+                    <i class="fas fa-dollar-sign white-text medium"></i>
+                    <h5 class="white-text semi-bold luxia">
+                        Perfect Rates
+                    </h5>
+                    <p class="white-text luxia">
+                        After you’ve selected the ride that fits just right for you and the occasion, we wrap up the
+                        deal with the best rates to compliment our services.
+                    </p>
+                </div>
+                <div class="col s12 l4 padding-even">
+                    <i class="fas fa-headset white-text medium"></i>
+                    <h5 class="white-text semi-bold luxia">
+                        Excellent Customer Support
+                    </h5>
+                    <p class="white-text luxia">
+                        It’s not just about closing the deal, it’s about satisfying the customers 100%. That is why we
+                        take customer services and follow-up as top priority.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog section white">
+        <div class="">
+            <h2 class="black-text luxia semi-bold center">
+                The Legacy Way!
+            </h2>
+            <p class="black-text center">
+                Luxury rentals you will remember
+            </p>
+            <div class="show-blogs self-container">
+                <div class="loader" style="text-align: center;">
+                    <img src="/assets/loading.gif" alt="" class="loader-gif" style="width: 20%">
+                </div>
+                <div class="render-blogs">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial section brand-color">
+        <div class="container">
+            <div class="render-testimonials">
+                <!-- testimonial here -->
+            </div>
+            <div class="selectors">
+                <div class="dot0 dot active"></div>
+                <div class="dot1 dot"></div>
+                <div class="dot2 dot"></div>
+                <div class="dot3 dot"></div>
+                <div class="dot4 dot"></div>
+                <div class="dot5 dot"></div>
+                <div class="dot6 dot"></div>
+                <div class="dot7 dot"></div>
+                <div class="dot8 dot"></div>
+                <div class="dot9 dot"></div>
+                <div class="dot10 dot"></div>
+            </div>
+        </div>
+    </section>
+    <footer class="section black">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 l4 padding-even">
+                    <h5 class="semi-bold luxia white-text">
+                        Legacy Rides
+                    </h5>
+                    <small class="white-text small-text">
+                        Rent a vehicle today for a once in a lifetime experience.
+                    </small>
+                    <div class="logo-holder-buttom" style="margin-top: 20px;">
+                        <img src="/assets/logo.png" alt="" style="width: 50%; opacity: 1;">
+                    </div>
+                </div>
+                <div class="col s12 l4 padding-even white-text">
+                    <h5 class="semi-bold luxia white-text">
+                        Contact
+                    </h5>
+                    <p class="small"><i class="fas fa-map-marker-alt"></i> <span class="small-text">950 Legacy Dr Ste
+                            1075 Plano,TX 75024</span></p>
+                    <p class="small"><i class="fas fa-mobile"></i> <span class="small-text">(972)-674 8081</span></p>
+                    <p class="small"><i class="fas fa-clock"></i> <span class="small-text">7am - 8pm</span></p>
+                </div>
+                <div class="col s12 l4 padding-even">
+                    <h5 class="semi-bold luxia white-text">
+                        Connect With Us
+                    </h5>
+                    <div class="white-text">
+                        <a href="http://intagram.com/mylegacyrides" style="color: white;"> <i class="fab fa-instagram"
+                                style="display: inline-block; margin-right: 10px; font-size: 25px; margin-top: 10px;"></i>
+                        </a>
+                        <a href="mailto:info@mylegacyrides.com" style="color: white;"><i class="fas fa-envelope"
+                                style="display: inline-block; margin-right: 10px; font-size: 25px; margin-top: 10px;"></i></a>
+                        <a href="tel:+19726748081" style="color: white;"> <i class="fas fa-phone-alt"
+                                style="display: inline-block; margin-right: 10px; font-size: 25px; margin-top: 10px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Pop Up -->
+    <div class="pop-up-holder">
+        <h3 class="red-text black" style="font-size: 20px; padding:5px ;">
+            X
+        </h3>
+        <div class="pop-up padding-even">
+            <div class="head brand-color padding-even">
+                <h4 class="white-text">SPECIAL OFFER</h4>
+                <p class="white-text">Stay in the loop to get up to 25% OFF YOUR NEXT RENTAL!</p>
+            </div>
+            <div class="show-input-feild">
+                <!-- Getresponse goes here -->
+                <form action="https://app.getresponse.com/add_subscriber.html" accept-charset="utf-8" method="post">
+                    <!-- Name -->
+                    <label for="name"> Your Name *</label>
+                    <input type="text" name="name" />
+                    <!-- Email field (required) -->
+                    <label for="email"> Your Email *</label>
+                    <input type="text" name="email" />
+                    <label for="custom_phone">Your Phone *</label>
+                    <input name="custom_phone" type="text" value="" />
+                    <!-- List token -->
+                    <!-- Get the token at: https://app.getresponse.com/campaign_list.html -->
+                    <input type="hidden" name="campaign_token" value="zEocM" />
+                    <!-- Thank you page (optional) -->
+                    <input type="hidden" name="thankyou_url" value="https://mylegacyrides.com/" />
+                    <!-- Add subscriber to the follow-up sequence with a specified day (optional) -->
+                    <input type="hidden" name="start_day" value="0" />
+                    <!-- Subscriber button -->
+                    <input type="submit" value="Subscribe" />
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Show side nav in mobile view
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+
+        });
+
+        //counter 
+        let hours = document.getElementById('hours');
+        let min = document.getElementById('minutes');
+        let sec = document.getElementById('seconds');
+
+        let hours_ = 00;
+        let min_ = 14;
+        let sec_ = 59;
+
+        setInterval(() => {
+            if (sec_ == 0) {
+                sec_ = 60;
+                if (min_ == 0) {
+                    min_ = 59;
+                    hour_ = hour_ - 1;
+                } else {
+                    min_ = min_ - 1;
+                }
+            }
+            sec_ = sec_ - 1;
+            sec.innerHTML = sec_ + '<br><small class="white-text xx-small">SECONDS</small>';
+            min.innerHTML = min_ + '<br><small class="white-text xx-small">MINUTES</small>';
+            hours.innerHTML = "0" + hours_ + '<br><small class="white-text xx-small">HOURS</small>';
+
+        }, 1000);
+
+
+    </script>
+    <script src="/javascript/index.js"></script>
+</body>
+
+</html>

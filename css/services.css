@@ -1,0 +1,181 @@
+/* General Css */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap');
+@font-face{
+    font-family: 'luxia';
+    src: url('../fonts/luxia.woff')
+    url('../fonts/luxia.woff2');
+}
+*{
+    font-family: 'Poppins';
+    /* font-family: 'EB Garamond', serif !important; */
+}
+body{
+    position: relative;
+}
+.luxia{
+    font-family: 'EB Garamond', serif !important;
+}
+::selection{
+    background-color: #222222;
+    color: white;
+}
+.section{
+    padding-top: 2% !important;
+    padding-bottom: 4% !important;
+    position: relative;
+}
+/* Text Weight Variation */
+.thin-text{
+    font-weight: 100;
+}
+.extra-light-text{font-weight: 200;} .light-text{font-weight: 300;} .regular-text{font-weight: 400;} .medium-text{font-weight: 500;}
+.semi-bold{font-weight: 600;} .bold{font-weight: 700;} .black-bold{font-weight: 900;}
+/* Text Weight Variation Ends */
+.inner-container{
+    padding: 20px;
+}
+.padding-even{
+    padding: 20px;
+}
+.padding-lr{
+    padding: 0 20px !important;
+}
+/* Text Size variation */
+.xx-small{
+    font-size: xx-small;
+}
+.x-small{ font-size: x-small;} .small-text{font-size: small;} .xx-large{font-size: 42px;} .large-text{font-size: large;}
+.brand-color{
+    background-color: #A98037;
+}
+.brand-color-text{
+    color: #A98037;
+}
+.self-container{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+/* header styling */
+header{
+    padding: 10px;
+}
+header .container{
+    display: flex;
+}
+header .container p{
+    margin: 0 10px;
+}
+header div.container div.socials{
+    width: 60%;
+    text-align: right;
+}
+header div.container div.socials i{
+    display: inline-block;
+    margin-right: 5px;
+}
+/* Nav bar Styling */
+nav{
+    position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+nav ul li{
+    z-index: 1000 !important;
+}
+nav ul li a{
+    transition: .5s ease;
+}
+nav ul li a:hover{
+    color: #A98037 !important;
+}
+nav.transparent{
+    background-color: rgb(0, 0, 0) !important;
+}
+nav .brand-logo{
+    z-index: 0;
+}
+a img{
+    width: 12%;
+}
+/* Banner Styling */
+section.banner{
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.281);
+    background-image: url('../assets/bmwlight2.jpg');
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    justify-items: center;
+}
+.banner div.parallax{
+    display: none;
+}
+form label{
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+    display: inline-block !important;
+}
+form input{
+    border: 1px solid rgb(189, 189, 189) !important;
+    border-radius: 5px !important;
+    background-color: white !important;
+    padding: 15px !important;
+    width: calc(100% - 30px) !important;
+    height: fit-content !important;
+}
+form textarea{
+    border: 1px solid rgb(189, 189, 189) !important;
+    border-radius: 5px !important;
+    background-color: white !important;
+    padding: 15px !important;
+    width: calc(100%) !important;
+    height: 150px !important;
+}
+form input[type="submit"]{
+    border: none !important;
+    border-radius: 5px !important;
+    background-color: #A98037 !important;
+    color: white !important;
+    width: 30% !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+form select{
+    width: 100%;
+    display: block !important;
+    border: 1px solid rgb(189, 189, 189) !important;
+    border-radius: 5px !important;
+    background-color: white !important;
+
+}
+.sidenav{
+    background-color: white;
+    border: 10px solid #A98037;
+}
+.sidenav li>a{
+    color: black !important;
+    font-size: 18px !important;
+}
+@media screen and (max-width: 799px){
+    header .container{
+        display: block;
+    }
+    section.banner{
+        height: 40vh;
+    }
+    .banner h2{
+        font-size: 30px;
+    }
+}
+@media screen and (width: 1024px) {
+    .container{
+        margin-left: 50px;
+        margin-right: 50px;
+        width: calc(100% - 100px);
+    }
+}

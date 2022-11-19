@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <style>
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            justify-content: center;
+        }
+    </style>
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>Adding Car images</title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+</head>
+
+<body>
+    <!-- Big Page loader -->
+    <div class="loader" style="text-align: center;">
+        <img src="../assets/loading.gif" alt="" class="loader-gif" style="width: 20%">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyAiHsByQwEDdpGOWh4F_qPX0tWjPMIcPkI",
+            authDomain: "my-legacy-rides.firebaseapp.com",
+            projectId: "my-legacy-rides",
+            storageBucket: "my-legacy-rides.appspot.com",
+            messagingSenderId: "141857147115",
+            appId: "1:141857147115:web:7f7fa7e7fd72f99cf856ae",
+            measurementId: "G-RNPHK82611"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        let firestore = firebase.firestore();
+
+        let urlParams = new URLSearchParams(window.location.search);
+        let carId = urlParams.get('id');
+
+        
+        //get images from localstorage
+        let images = JSON.parse(localStorage.getItem('images'));
+        let imageUrls = [];
+
+
+        const res = Promise.all(images.map((img) => {
+            firebase.storage().ref().child(img).getDownloadURL()
+            .then(imgUrl => {
+                
+                imageUrls.push(imgUrl);
+
+                console.log(imageUrls);
+
+                if(imageUrls.length == images.length) {
+                    firestore.collection('cars').doc(carId).update({
+                        images: imageUrls,
+                    }).then(val => {
+                        M.toast({html: 'Images Added Successfully.'});
+                        
+                        console.log('Move to next page');
+                        setTimeout(() => {
+                            location.href ='/admin/car.html';
+                        }, 4000);
+                    });
+
+                }
+            })
+        }))
+
+        
+
+
+    </script>
+</body>

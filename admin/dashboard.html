@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="" class="keywords">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="css/dash.css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <title>Dasboard</title>
+    <!-- font awesome  -->
+    <script src="https://kit.fontawesome.com/3ce9d3e4c3.js" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+</head>
+<body class="grey lighten-2">
+    <!-- <section class="white padding-even">
+
+    </section> -->
+    <section class="row">
+        <aside class="side-bar primary-color col l2 hide-on-med-and-down full-height">
+            <div class="user-details padding-even" style="text-align: center;">
+                <div style="display: flex; justify-content: center;">
+                    <div class="profile-picture">
+
+                    </div>
+                </div>
+                <h6 class="username white-text">
+                    Shekh Al Rayhan
+                </h6>
+                <p class="email grey-text text-lighten-2 small-text">
+                    example@gmail.com
+                </p>
+            </div>
+            <div class="list selected">
+                <i class="fas fa-tachometer-alt white-text"></i> <p class="white-text">Dashboard</p>
+            </div>
+            <div class="list car">
+                <i class="fas fa-car white-text"></i> <p class="white-text">Cars</p>
+            </div>
+            <div class="list blog">
+                <i class="far fa-newspaper white-text"></i> <p class="white-text">Blogs</p>
+            </div>
+            <div class="list user">
+                <i class="fas fa-users white-text"></i> <p class="white-text">Users</p>
+            </div>
+            <div class="list faq">
+                <i class="far fa-question-circle white-text"></i> <p class="white-text">FAQ</p>
+            </div>
+            <div class="list sign-out">
+                <i class="fas fa-info-circle white-text"></i> <p class="white-text">Sign Out</p>
+            </div>
+        </aside>
+        <section class="col l10 offset-l2 hide-on-med-and-down">
+            <div class="grid four-tabs">
+                <div class="col l3 green lighten-2 add-blog">
+                        <div>
+                            <i class="far fa-newspaper white-text"></i>
+                            <div class="padding-even"></div>
+                            <p class="white-text">Add New Blog Post</p>
+                        </div>
+                </div>
+                <div class="col l3 blue lighten-2 add-faq">
+                        <div>
+                            <i class="far fa-question-circle white-text"></i>
+                            <div class="padding-even"></div>
+                            <p class="white-text">Add New FAQ</p>
+                        </div>
+                </div>
+                <div class="col l3 red lighten-2 add-car">
+                        <div>
+                            <i class="fas fa-car white-text"></i>
+                            <div class="padding-even"></div>
+                            <p class="white-text">Add Car To Fleet</p>
+                        </div>
+                </div>
+                <div class="col l3 orange lighten-2 add-user">
+                        <div>
+                            <i class="fas fa-users white-text"></i>
+                            <div class="padding-even"></div>
+                            <p class="white-text">View User</p>
+                        </div>
+                </div>
+
+            </div>
+            <div class="padding-even seo">
+                <h4 class="grey-text text-darken-2 bold">
+                    SEO META DATA <i class="fas fa-info-circle small grey-text text-lighten-1 tooltipped" style="font-size: 16px;" data-position="bottom" data-tooltip="Adding keywords to pages increases their visibility during searches on google"></i>
+                </h4>
+            </div>
+            <div class="row seo-content">
+                <div class="col s12">
+                  <ul class="tabs">
+                    <li class="tab col s3"><a class="active" href="#test1">Homepage</a></li>
+                    <li class="tab col s3"><a href="#test2">Chauffer Services</a></li>
+                    <li class="tab col s3"><a href="#test3">Rental Fleet</a></li>
+                    <li class="tab col s3"><a href="#test4">About Us</a></li>
+                  </ul>
+                </div>
+                <!-- Homepage tab content -->
+                <div id="test1" class="col s12">
+                    <div class="content white padding-even">
+                        <!-- <div class="padding-even"></div> -->
+                        <h6 class="black-text">Homepage Keywords</h6>
+                        <p class="small-text grey-text">
+                            Provide desirable keywords below to aid visibility of the home page on search engines
+                        </p>
+                        <p class="existing-home-keywords grey-text">
+                            ...
+                        </p>
+                        <div class="row">
+                            <div class="col l7">
+                                <input type="text" name="" id="homepage-keywords">
+                                <p class="x-small grey-text">Words or phrases should be seperated by commas i.e ","</p>
+                            </div>
+                            <div class="col l7">
+                                <a id="homepage-submit-btn" class="btn-flat primary-color white-text waves-effect waves-light">
+                                    Update Keywords
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chauffer Services tab content -->
+                <div id="test2" class="col s12">
+                    <div class="content white padding-even">
+                        <!-- <div class="padding-even"></div> -->
+                        <h6 class="black-text">Chauffer Services Page Keywords</h6>
+                        <p class="small-text grey-text">
+                            Provide desirable keywords below to aid visibility of the Chauffer services page on search engines
+                        </p>
+                        <p class="existing-services-keywords grey-text">
+                            ...
+                        </p>
+                        <div class="row">
+                            <div class="col l7">
+                                <input type="text" name="" id="services-keywords">
+                                <p class="x-small grey-text">Words or phrases should be seperated by commas i.e ","</p>
+                            </div>
+                            <div class="col l7">
+                                <a id="services-submit-btn" class="btn-flat primary-color white-text waves-effect waves-light">
+                                    Update Keywords
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rental Fleet tab content -->
+                <div id="test3" class="col s12">
+                    <div class="content white padding-even">
+                        <!-- <div class="padding-even"></div> -->
+                        <h6 class="black-text">Rental Fleet Page Keywords</h6>
+                        <p class="small-text grey-text test">
+                            Provide desirable keywords below to aid visibility of the rental Fleet page on search engines
+                        </p>
+                        <p class="existing-rental-keywords grey-text">
+                            ...
+                        </p>
+                        <div class="row">
+                            <div class="col l7">
+                                <input type="text" name="" id="rental-keywords">
+                                <p class="x-small grey-text">Words or phrases should be seperated by commas i.e ","</p>
+                            </div>
+                            <div class="col l7">
+                                <a id="rental-submit-btn" class="btn-flat primary-color white-text waves-effect waves-light">
+                                    Update Keywords
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- about us tab content -->
+                <div id="test4" class="col s12">
+                    <div class="content white padding-even">
+                        <!-- <div class="padding-even"></div> -->
+                        <h6 class="black-text">About Us Keywords</h6>
+                        <p class="small-text grey-text">
+                            Provide desirable keywords below to aid visibility of the About Us page on search engines
+                        </p>
+                        <p class="existing-about-keywords grey-text">
+                            ...
+                        </p>
+                        <div class="row">
+                            <div class="col l7">
+                                <input type="text" name="" id="about-keywords">
+                                <p class="x-small grey-text">Words or phrases should be seperated by commas i.e ","</p>
+                            </div>
+                            <div class="col l7">
+                                <a id="about-submit-btn" class="btn-flat primary-color white-text waves-effect waves-light">
+                                    Update Keywords
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </section>
+    </section>
+    <!-- Big Page loader -->
+    <div class="loader" style="text-align: center;">
+        <img src="/assets/loading.gif" alt="" class="loader-gif" style="width: 20%">
+    </div>
+    <div class="tracking-code">
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Show side nav in mobile view
+         $(document).ready(function(){
+            $('.sidenav').sidenav();
+            $('.parallax').parallax();
+            $('.tooltipped').tooltip();
+            $('.tabs').tabs();
+        });
+        
+    </script>
+    <script src="js/dash.js"></script>
+
+</body>
+</html>
